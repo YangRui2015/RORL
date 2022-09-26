@@ -66,8 +66,8 @@ def get_config(
 
     if variant['load_path'] != '':
         trainer.load_snapshot(variant['load_path'])
-        if variant['load_Qs'] != '':
-            trainer.load_qfs(variant['load_Qs'])
+    if variant['load_Qs'] != '':
+        trainer.load_qfs(variant['load_Qs'])
     """
     Create config dict
     """

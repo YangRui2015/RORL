@@ -78,7 +78,7 @@ class OfflineRLAlgorithm(object, metaclass=abc.ABCMeta):
     def _end_epoch(self, epoch):
         snapshot = self._get_snapshot()
         if self.save_snapshot_freq is not None and \
-                (epoch + 1) % self.save_snapshot_freq == 0 and (epoch+1) >= 2/3 * self.num_epochs:
+                (epoch + 1) % self.save_snapshot_freq == 0:
             logger.save_itr_params(epoch + 1, snapshot, prefix='offline_itr')
         gt.stamp('saving', unique=False)
 

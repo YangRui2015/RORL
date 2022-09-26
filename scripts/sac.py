@@ -14,7 +14,7 @@ from scripts.get_config import get_rorl_config
 def main(args):
     # Default parameters
     variant = dict(
-        algorithm='SAC',
+        algorithm='',
         collector_type='step',
         env_name='hopper-random-v2',
         env_kwargs=dict(),
@@ -42,10 +42,10 @@ def main(args):
         offline_kwargs=dict(
             num_epochs=3000,
             num_eval_steps_per_epoch=1000,
-            num_trains_per_train_loop=1000,
+            num_trains_per_train_loop=2, #1000,
             max_path_length=1000, 
             batch_size=256,
-            save_snapshot_freq=100,
+            save_snapshot_freq=500,
         ),
     )
 
@@ -107,7 +107,7 @@ def main(args):
     # experiment name
     experiment_kwargs['exp_postfix'] = ''
     
-    exp_postfix = args.exp_postfix + '_{}'.format(args.num_qs)
+    exp_postfix = args.exp_prefix + '_{}'.format(args.num_qs)
     
     # exp_postfix += '_plr{:.4f}_qlr{:.4f}'.format(args.plr, args.qlr)
     if variant['trainer_kwargs']['max_q_backup']:
@@ -149,7 +149,7 @@ if __name__ == '__main__':
                         default='halfcheetah-random-v2',
                         type=str)
     parser.add_argument('--seed', default=0, type=int)
-    parser.add_argument('--exp_postfix', default='', type=str)
+    parser.add_argument('--exp_prefix', default='RORL', type=str)
     # Misc arguments
     parser.add_argument('--use_cpu', action='store_true')
     parser.add_argument('--log_to_tensorboard', action='store_true')

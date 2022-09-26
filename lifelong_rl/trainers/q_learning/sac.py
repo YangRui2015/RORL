@@ -399,11 +399,12 @@ class SACTrainer(TorchTrainer):
         self.policy_optimizer.load_state_dict( datas['trainer/policy_optim'].state_dict())
         self.qfs_optimizer.load_state_dict(datas['trainer/qfs_optim'].state_dict())
         self.alpha_optimizer.load_state_dict(datas['trainer/alpha_optim'].state_dict())
+        logger.log('Loading model from {} finished'.format(path))
     
     def load_qfs(self, path):
         datas = torch.load(path, map_location=ptu.device)
         self.qfs.load_state_dict(datas['trainer/qfs'].state_dict())
-        print('Loading seperate Q networks finished')
+        logger.log('Loading Q networks from {} finished'.format(path))
 
 
 
