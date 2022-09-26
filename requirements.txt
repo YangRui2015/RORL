@@ -1,0 +1,10 @@
+absl-py
+dm_control==0.0.364896371
+gtimer
+gym
+matplotlib
+mujoco-py<2.1,>=2.0
+opencv-python
+python-dateutil
+tensorboardX
+torch==1.7.1
