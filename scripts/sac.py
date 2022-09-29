@@ -42,7 +42,7 @@ def main(args):
         offline_kwargs=dict(
             num_epochs=3000,
             num_eval_steps_per_epoch=1000,
-            num_trains_per_train_loop=2, #1000,
+            num_trains_per_train_loop=1000,
             max_path_length=1000, 
             batch_size=256,
             save_snapshot_freq=500,
