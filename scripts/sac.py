@@ -203,7 +203,7 @@ if __name__ == '__main__':
                         help='normalize rewards to > 0')
     
     # smooth
-    parser.add_argument('--num_samples', default=30, type=int)
+    parser.add_argument('--num_samples', default=20, type=int)
     parser.add_argument('--policy_smooth_eps', default=0.0, type=float) 
     parser.add_argument('--policy_smooth_reg', default=1, type=float)
     parser.add_argument('--q_smooth_eps', default=0.0, type=float) 
