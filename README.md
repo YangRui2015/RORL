@@ -72,6 +72,18 @@ python -m scripts.sac --env_name [ENVIRONMENT] --num_qs 10 --norm_input --eval_n
 'Qs path': the path of attacker's Q functions, which can be different from the evaluated agent's Q functions
 
 
+## Tips for Customizing RORL
+According to our ablation study result in Appendix C, we summarize some tips for adapting RORL for customized use below.
+* **Hyper-parameter Tuning**: Since RORL is proposed to solve a challenging problem, it has
+many hyper-parameters. Our first suggestion is to use our hyper-parameter search range in
+Appendix B.1. You can tune them according to the importance of each component, where
+the general order is : OOD loss > policy smoothing loss > Q smoothing loss.
+* **Computation Cost**: If you want less GPU memory usage and less training time, you can
+(1) set $\beta_Q$ = 0 and $\epsilon_Q$ = 0 because the Q smoothing loss contributes the least but consumes
+a large computational cost, and (2) use a small number $n$ of sampled perturbed states to
+reduce the GPU memory usage.
+
+
 ## Citation
 If you find RORL helpful for your work, please cite:
 ```
