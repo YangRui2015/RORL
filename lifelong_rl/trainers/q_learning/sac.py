@@ -247,7 +247,7 @@ class SACTrainer(TorchTrainer):
         if self.q_smooth_eps > 0 and self.q_smooth_reg > 0:
             M, A, size, noised_obs, delta_s = self._get_noised_obs(obs, actions, self.q_smooth_eps)
             noised_qs_pred = self.qfs(noised_obs, actions.reshape(-1, 1, A).repeat(1, size, 1).reshape(-1, A))
-            diff = noised_qs_pred - qs_pred.repeat(1, size, 1)
+            diff = noised_qs_pred - qs_pred.repeat(1, 1, size).reshape(self.num_qs, -1, 1)
             zero_tensor = torch.zeros(diff.shape, device=ptu.device)
             pos, neg = torch.maximum(diff, zero_tensor), torch.minimum(diff, zero_tensor)
             noise_Q_loss = (1-self.q_smooth_tau) *  pos.square().mean(axis=0) + self.q_smooth_tau * neg.square().mean(axis=0)
