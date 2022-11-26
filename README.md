@@ -82,3 +82,6 @@ If you find RORL helpful for your work, please cite:
   year={2022}
 }
 ```
+
+## Update
+2022.11.26 fixed q smooth loss
