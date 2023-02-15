@@ -88,9 +88,9 @@ benchmark_config_dict = {
         'policy_smooth_eps': 0.01,
         'q_smooth_eps': 0.01,
         'q_ood_reg': 0.1,
-        'q_ood_uncertainty_reg': 0.1,
+        'q_ood_uncertainty_reg': 1.0,
         'q_ood_uncertainty_reg_min': 0.1,
-        'q_ood_uncertainty_decay': float(0)
+        'q_ood_uncertainty_decay': float(5e-7)
     },
     'walker2d-medium-expert-v2':{
         'policy_smooth_eps': 0.01,
@@ -113,7 +113,7 @@ benchmark_config_dict = {
         'q_smooth_eps': 0.005,
         'q_ood_reg': 0.5,
         'q_ood_uncertainty_reg': 1.0,
-        'q_ood_uncertainty_reg_min': 0.7,
+        'q_ood_uncertainty_reg_min': 0.5,
         'q_ood_uncertainty_decay': float(1e-6)
     }
 }
@@ -147,12 +147,12 @@ adversarial_config_dict = {
     },
     'hopper-medium-v2':{
         'num_samples': 20,
-        'policy_smooth_eps': 0.01,
+        'policy_smooth_eps': 0.005,
         'policy_smooth_reg': 0.1,
-        'q_smooth_eps': 0.01,
+        'q_smooth_eps': 0.005,
         'q_smooth_reg': 0.0001,
         'q_smooth_tau': 0.2,
-        'q_ood_eps': 0.03,
+        'q_ood_eps': 0.02,
         'q_ood_reg': 0.5,
         'q_ood_uncertainty_reg': 2.0,
         'q_ood_uncertainty_reg_min': 0.1,
